@@ -7,7 +7,7 @@
 
 (def config
   {:kinesis-client   {:region      "eu-west-1"
-                      :app-name    "kinesis-logger"
+                      :app-name    (str "kinesis-logger-" (env :stream-name))
                       :stream-name (env :stream-name)}
    :logentries-token (env :logentries-token)})
 
