@@ -9,7 +9,7 @@
                  [clj-kinesis-worker "0.0.3"]
                  [cheshire "5.5.0"]
                  [com.taoensso/timbre "4.2.1"]
-                 [timbre-logentries "0.1.1"]]
+                 [timbre-logentries "0.1.2"]]
 
   :plugins [[lein-environ "1.0.2"]
             [org.clojars.jstaffans/uberimage "0.4.2"]]

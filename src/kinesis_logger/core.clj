@@ -3,7 +3,7 @@
             [environ.core :refer [env]]
             [clj-kinesis-worker.core :as kinesis]
             [taoensso.timbre :as log]
-            [timbre-logentries.core :refer [logentries-appender]]))
+            [timbre-logentries.core :refer [logentries-appender raw-output]]))
 
 (def config
   {:kinesis-client   {:region      "eu-west-1"
@@ -21,7 +21,8 @@
                           (log/level>= (:level msg) :warn))
                     msg))]}
   (when (:logentries-token config)
-    {:appenders {:logentries (logentries-appender {:token (:logentries-token config)})}})))
+    {:appenders {:logentries (logentries-appender {:token (:logentries-token config)
+                                                   :output-fn raw-output})}})))
 
 (defrecord Logger [config]
   kinesis/RecordProcessor
