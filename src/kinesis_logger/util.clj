@@ -7,5 +7,4 @@
   "Parses a Record instance into a hash map."
   (-> r
       .getData
-      (bytes/convert String)
-      json/parse-string))
+      (bytes/convert String)))
