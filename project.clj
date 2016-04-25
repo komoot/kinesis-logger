@@ -1,4 +1,4 @@
-(defproject kinesis-logger "0.1.3"
+(defproject kinesis-logger "0.1.4"
   :description "Simple logger for Kinesis events, mainly for debugging purposes"
   :url "https://github.com/komoot/kinesis-logger"
   :license {:name "Eclipse Public License"
@@ -9,7 +9,7 @@
                  [clj-kinesis-worker "0.0.3"]
                  [cheshire "5.5.0"]
                  [com.taoensso/timbre "4.2.1"]
-                 [timbre-logentries "0.1.2"]]
+                 [timbre-logentries "0.1.3"]]
 
   :plugins [[lein-environ "1.0.2"]
             [org.clojars.jstaffans/uberimage "0.4.2"]]
