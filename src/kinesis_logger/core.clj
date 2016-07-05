@@ -11,18 +11,26 @@
                       :stream-name (env :stream-name)}
    :logentries-token (env :logentries-token)})
 
-(log/merge-config!
- (merge
+(def logging-config
   {:level      :info
    ;; reduce logging from the slf4j adapter to WARN
    :middleware [(fn min-level-for-ns [msg]
                   (when
                       (or (not= "slf4j-timbre.adapter" (:?ns-str msg))
                           (log/level>= (:level msg) :warn))
-                    msg))]}
-  (when (:logentries-token config)
-    {:appenders {:logentries (logentries-appender {:token (:logentries-token config)
-                                                   :output-fn raw-output})}})))
+                    msg))]
+
+   :timestamp-opts log/default-timestamp-opts
+
+   :output-fn log/default-output-fn
+
+   :appenders (if-let [token (:logentries-token config)]
+                {:logentries (logentries-appender
+                              {:token     token
+                               :output-fn raw-output})}
+                {:println (log/println-appender {:stream :auto})})})
+
+(log/set-config! logging-config)
 
 (defrecord Logger [config]
   kinesis/RecordProcessor
@@ -53,6 +61,7 @@
   (launch-worker! config))
 
 (comment
+  (require '[kinesis-logger.core :refer :all])
   (launch-worker! config)
   (future-cancel *logger-thread*)
   (.shutdown *worker*))
