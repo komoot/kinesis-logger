@@ -16,7 +16,7 @@
    ;; reduce logging from the slf4j adapter to WARN
    :middleware [(fn min-level-for-ns [msg]
                   (when
-                      (or (not= "slf4j-timbre.adapter" (:?ns-str msg))
+                      (or (not (re-matches #"^com.amazonaws.services.kinesis.*" (:?ns-str msg)))
                           (log/level>= (:level msg) :warn))
                     msg))]
 
