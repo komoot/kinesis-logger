@@ -6,10 +6,10 @@
   :dependencies [[org.clojure/clojure "1.8.0"]
                  [environ "1.0.2"]
                  [byte-streams "0.2.0"]
-                 [clj-kinesis-worker "0.0.3"]
+                 [de.komoot/clj-kinesis-worker "1.0.1"]
                  [cheshire "5.5.0"]
                  [com.taoensso/timbre "4.2.1"]
-                 [timbre-logentries "0.1.4"]]
+                 [de.komoot/timbre-logentries "1.0.0"]]
 
   :plugins [[lein-environ "1.0.2"]
             [org.clojars.jstaffans/uberimage "0.4.2"]]
