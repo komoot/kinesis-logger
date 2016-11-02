@@ -1,4 +1,4 @@
-(defproject kinesis-logger "0.1.7"
+(defproject kinesis-logger "0.1.8"
   :description "Simple logger for Kinesis events, mainly for debugging purposes"
   :url "https://github.com/komoot/kinesis-logger"
   :license {:name "Eclipse Public License"
