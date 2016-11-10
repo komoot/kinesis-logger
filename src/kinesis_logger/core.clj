@@ -13,7 +13,7 @@
 
 (def logging-config
   {:level      :info
-   ;; reduce logging from the slf4j adapter to WARN
+   ;; reduce logging from the Kinesis client library to WARN
    :middleware [(fn min-level-for-ns [msg]
                   (when
                       (or (not (re-matches #"^com.amazonaws.services.kinesis.*" (:?ns-str msg)))
