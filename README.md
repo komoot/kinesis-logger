@@ -1,4 +1,4 @@
-# kinesis-logger
+# kinesis-logger - Deprecated in favor of the lambda function [kinesis-test-event-stream-logger](https://github.com/komoot/kinesis-test-event-stream-logger)
 
 Simple Logentries logger for a Kinesis stream.
 
